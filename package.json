@@ -1,10 +1,10 @@
 {
-  "name": "generator",
+  "name": "@codebuddy/generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "Scafold projects",
   "main": "index.js",
   "bin": {
-    "cbd-gen": "./dist/main.js"
+    "cbd-gen": "dist/main.js"
   },
   "scripts": {
     "build": "tsc",
@@ -15,8 +15,11 @@
     "type": "git",
     "url": "git+https://github.com/codebuddy-pvt-ltd/generator.git"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [],
-  "author": "",
+  "author": "developer@codebuddy.co",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/codebuddy-pvt-ltd/generator/issues"
