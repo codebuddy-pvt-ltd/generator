@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
-import logger from './lib/logger.js';
+import app from './app';
 
-logger.error('error');
-logger.success('success');
-logger.warn('warn');
-logger.info('info');
+(async () => {
+  await app();
+})();

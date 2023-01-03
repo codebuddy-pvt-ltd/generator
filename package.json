@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "build:watch": "tsc --watch",
     "start": "node dist/main.js"
   },
   "repository": {
@@ -22,10 +23,12 @@
   },
   "homepage": "https://github.com/codebuddy-pvt-ltd/generator#readme",
   "dependencies": {
-    "chalk": "<5.0.0"
+    "chalk": "<5.0.0",
+    "yargs": "^17.6.2"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
+    "@types/yargs": "^17.0.18",
     "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@typescript-eslint/parser": "^5.47.1",
     "eslint": "^8.31.0",
