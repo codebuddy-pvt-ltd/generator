@@ -32,5 +32,5 @@ export const scaffold = async (framework: string, version: string, name: string)
   });
 
   // re-init git for fresh start
-  await runCommand(`git init`, { cwd: newProjectDir });
+  await runCommand(`git init`, { cwd: newProjectDir }, false);
 };
