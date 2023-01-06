@@ -10,14 +10,9 @@ const configs: IConfig[] = [
     framework: 'nest',
     versions: [
       {
-        version: '5',
-        gitUrl: 'https://github.com/codebuddyinterview/node',
-        command: 'cbd-gen -f nest -v 5 -n nest-5',
-      },
-      {
-        version: '6',
-        gitUrl: 'https://github.com/codebuddyinterview/node',
-        command: 'cbd-gen -f nest -v 6 -n nest-6',
+        version: '9',
+        gitUrl: 'https://github.com/codebuddy-pvt-ltd/boilerplates-nestjs.git',
+        command: 'cbd-gen -f nest -v 9 -n nest-9',
       },
     ],
   },
@@ -25,14 +20,19 @@ const configs: IConfig[] = [
     framework: 'laravel',
     versions: [
       {
-        version: '7',
-        gitUrl: 'https://github.com/codebuddyinterview/node',
-        command: 'cbd-gen -f laravel -v 7 -n laravel-7',
+        version: '9',
+        gitUrl: 'https://github.com/codebuddy-pvt-ltd/boilerplates-laravel.git',
+        command: 'cbd-gen -f laravel -v 9 -n laravel-9',
       },
+    ],
+  },
+  {
+    framework: 'next',
+    versions: [
       {
-        version: '8',
-        gitUrl: 'https://github.com/codebuddyinterview/node',
-        command: 'cbd-gen -f laravel -v 8 -n laravel-8',
+        version: '13',
+        gitUrl: 'https://github.com/codebuddy-pvt-ltd/boilerplates-next.git',
+        command: 'cbd-gen -f next -v 13 -n next-13',
       },
     ],
   },

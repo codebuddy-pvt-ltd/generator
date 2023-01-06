@@ -18,7 +18,11 @@ export const scaffold = async (framework: string, version: string, name: string)
 
   // clone git repo with only last commit
   // if name is provided as option then create folder as name argument or rely on git repo name
-  await runCommand(`git clone --depth 1 ${gitUrl} ${name?.length ? name : ''}`, {}, false);
+  await runCommand(
+    `git clone --depth 1 -b ${version} ${gitUrl} ${name?.length ? name : ''}`,
+    {},
+    false,
+  );
 
   // decide newly created folder name
   const folderName = name?.length ? name : gitUrl.split('/')[gitUrl.split('/').length - 1];
