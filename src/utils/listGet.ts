@@ -2,10 +2,13 @@ import logger from './logger';
 import configs from './config';
 
 export const listGet = () => {
+  const list = [];
   configs.forEach((config) => {
-    logger.info(`[*] ${config.framework}`);
     config.versions.forEach((version) => {
-      logger.info(`\t[*] version: ${version.version} > ${version.command}`);
+      const row = [config.framework, version.version, version.command];
+      list.push(row);
     });
   });
+
+  logger.table(list);
 };

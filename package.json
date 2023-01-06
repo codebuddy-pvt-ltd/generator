@@ -1,6 +1,6 @@
 {
   "name": "@codebuddy/generator",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Scafold projects",
   "main": "index.js",
   "bin": {
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/codebuddy-pvt-ltd/generator#readme",
   "dependencies": {
     "chalk": "<5.0.0",
+    "table": "^6.8.1",
     "yargs": "^17.6.2"
   },
   "devDependencies": {

@@ -11,6 +11,7 @@ export interface ICliArgs {
   framework: string;
   v: string; // framework version
   'framework-version': string;
+  l: string; // list
   list: string;
   n: string; // name
   name: string;
@@ -43,6 +44,7 @@ export default async () => {
       demandOption: false,
     })
     .option('list', {
+      alias: 'l',
       describe: 'List available frameworks with versions list',
       type: 'string',
       demandOption: false,
@@ -54,7 +56,7 @@ export default async () => {
   const argv = yargs(hideBin(process.argv)).argv as any as ICliArgs;
 
   // show list of available options then quit the program
-  if (argv.list) {
+  if (argv.list || argv.l) {
     listGet();
     return;
   }
