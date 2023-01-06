@@ -4,6 +4,7 @@ import chalk from 'chalk';
 import logger from './utils/logger';
 import { scaffold } from './utils/scaffold';
 import { listGet } from './utils/listGet';
+import pJson from '../package.json';
 
 export interface ICliArgs {
   f: string; // framework
@@ -46,7 +47,7 @@ export default async () => {
       type: 'string',
       demandOption: false,
     })
-    .version('0.0.1')
+    .version(pJson.version)
     .help(true).argv;
 
   // parse cli input (ignore sys args)
