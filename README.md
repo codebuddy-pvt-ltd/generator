@@ -14,7 +14,7 @@
   </a>
 </p>
 
-> Scafold projects
+> Scaffold projects
 
 ### 🏠 [Homepage](https://github.com/codebuddy-pvt-ltd/generator#readme)
 

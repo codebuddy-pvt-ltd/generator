@@ -1,7 +1,7 @@
 {
   "name": "@codebuddy/generator",
   "version": "1.0.5",
-  "description": "Scafold projects",
+  "description": "Scaffold projects",
   "main": "index.js",
   "bin": {
     "cbd-gen": "dist/src/main.js"
