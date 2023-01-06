@@ -1,77 +1,52 @@
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import chalk from 'chalk';
-import logger from './utils/logger';
-import { scaffold } from './utils/scaffold';
 import { listGet } from './utils/listGet';
+import { scaffold } from './utils/scaffold';
 import pJson from '../package.json';
 
-export interface ICliArgs {
-  f: string; // framework
-  framework: string;
-  v: string; // framework version
-  'framework-version': string;
-  l: string; // list
-  list: string;
-  n: string; // name
-  name: string;
-}
-
 export default async () => {
-  const usage = chalk.keyword('violet')(
-    '\nUsage: cbd-gen -f <framework>  -v <framework-version> \n',
-  );
-
-  // adds command line helpers
-  yargs
-    .usage(usage)
-    .option('f', {
-      alias: 'framework',
-      describe: 'Choose framework',
-      type: 'string',
-      demandOption: false,
-    })
-    .option('v', {
-      alias: 'framework-version',
-      describe: 'Choose major framework version',
-      type: 'string',
-      demandOption: false,
-    })
-    .option('n', {
-      alias: 'name',
-      describe: 'Project folder name',
-      type: 'string',
-      demandOption: false,
-    })
-    .option('list', {
-      alias: 'l',
-      describe: 'List available frameworks with versions list',
-      type: 'string',
-      demandOption: false,
-    })
+  yargs(hideBin(process.argv))
     .version(pJson.version)
-    .help(true).argv;
+    .command(
+      'scaffold [framework] [frameworkVersion] [name]',
+      'Scaffold project',
+      (yargs) => {
+        yargs.demandOption(['framework', 'frameworkVersion']);
 
-  // parse cli input (ignore sys args)
-  const argv = yargs(hideBin(process.argv)).argv as any as ICliArgs;
+        return yargs
+          .positional('framework', {
+            describe: 'framework name, eg. nest',
+            type: 'string',
+          })
+          .positional('frameworkVersion', {
+            describe: 'major framework version, eg. 9',
+            type: 'string',
+          })
+          .positional('name', {
+            describe: 'project folder name, eg. todo-app',
+            type: 'string',
+          });
+      },
+      async (argv) => {
+        await scaffold(argv.framework, argv.frameworkVersion, argv.name);
+      },
+    )
+    .command(
+      'list [option]',
+      'List available options',
+      (yargs) => {
+        yargs.demandOption(['option']);
 
-  // show list of available options then quit the program
-  if (argv.list || argv.l) {
-    listGet();
-    return;
-  }
-
-  // show help if framework option not provided
-  if (!argv.f && !argv.framework) {
-    logger.error('\nError: Must choose a framework using -f or --framework option\n');
-    yargs.showHelp();
-    return;
-  }
-
-  const framework = argv.f || argv.framework;
-  const version = argv.v || argv['framework-version'];
-  const name = argv.n || argv.name;
-
-  // do scaffold
-  await scaffold(framework, version, name);
+        return yargs.positional('option', {
+          describe: 'available options, eg. scaffolds',
+          type: 'string',
+          choices: ['scaffolds', 'services'],
+        });
+      },
+      async (argv) => {
+        if (argv.option === 'scaffolds') listGet();
+      },
+    )
+    .demandCommand()
+    .parse();
 };

@@ -12,7 +12,7 @@ const configs: IConfig[] = [
       {
         version: '9',
         gitUrl: 'https://github.com/codebuddy-pvt-ltd/boilerplates-nestjs.git',
-        command: 'cbd-gen -f nest -v 9 -n nest-9',
+        command: 'cbd-gen nest 9 nest-9',
       },
     ],
   },
@@ -22,7 +22,7 @@ const configs: IConfig[] = [
       {
         version: '9',
         gitUrl: 'https://github.com/codebuddy-pvt-ltd/boilerplates-laravel.git',
-        command: 'cbd-gen -f laravel -v 9 -n laravel-9',
+        command: 'cbd-gen laravel 9 laravel-9',
       },
     ],
   },
@@ -32,7 +32,7 @@ const configs: IConfig[] = [
       {
         version: '13',
         gitUrl: 'https://github.com/codebuddy-pvt-ltd/boilerplates-next.git',
-        command: 'cbd-gen -f next -v 13 -n next-13',
+        command: 'cbd-gen next 13 next-13',
       },
     ],
   },

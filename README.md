@@ -27,13 +27,13 @@ npm i -g @codebuddy/generator
 ## Usage
 
 ```sh
-cbd-gen -f laravel -v 8
+cbd-gen scaffold laravel 9 todo-app
 ```
 
 OR
 
 ```sh
-npx @codebuddy/generator -f laravel -v 8
+npx @codebuddy/generator scaffold laravel 9 todo-app
 ```
 
 ## Author
