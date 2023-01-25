@@ -2,6 +2,7 @@ import yargs from 'yargs';
 
 export * from './scaffoldGen';
 export * from './list';
+export * from './login';
 
 export type TCommandArgs = [
   string,
