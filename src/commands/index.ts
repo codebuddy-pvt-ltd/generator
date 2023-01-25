@@ -3,6 +3,7 @@ import yargs from 'yargs';
 export * from './scaffoldGen';
 export * from './list';
 export * from './login';
+export * from './inject';
 
 export type TCommandArgs = [
   string,
