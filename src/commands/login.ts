@@ -1,9 +1,9 @@
 import { TCommandArgs } from '.';
 import open from 'open';
 import express from 'express';
-import axios from 'axios';
 import logger from '../utils/logger';
 import { saveToken } from '../utils/saveToken';
+import http from '../utils/api';
 
 const redirect = encodeURIComponent('http://localhost:3001/oauth');
 
@@ -34,12 +34,8 @@ export const loginCommand: TCommandArgs = [
 
     await server.close();
 
-    axios
-      .get('http://localhost:3000/auth/me', {
-        headers: {
-          Authorization: `Bearer ${authorizeToken}`,
-        },
-      })
+    http
+      .get('/auth/me')
       .then(async () => {
         logger.success(`Logged in successfully! -> ${authorizeToken}`);
         await saveToken(authorizeToken as string);
